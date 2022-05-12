@@ -1,0 +1,44 @@
+<h1>GESTION DE STOCK</h1>
+<div>
+
+ 
+
+  <form #f = "ngForm">
+    <label>Titre</label>
+    <input type="text" name="titre" [(ngModel)] = "selectedPolicy.titre">
+    <br>
+    <label>Description</label>
+    <input type="text" name="description" [(ngModel)] = "selectedPolicy.description">
+    <label for="scales">case à cocher</label>
+    <input type="checkbox" id="" name=""checked>
+    <br> <br>
+    <input type="button" (click)="createOrUpdatePolicy(f)" value="Enregistrer l'article">
+  </form>
+  <br>
+
+  <h2>Liste des articles</h2>
+
+  <table border='1' width='100%' style='border-collapse: collapse;'>
+    <tr>
+      <th>titre</th>
+      <th>description</th>
+      <th>publie</th>
+      <th>actions</th>
+
+    </tr>
+
+    <tr *ngFor="let policy of policies">
+      <td>{{ policy.id }}</td>
+      <td>{{ policy.titre }}</td>
+      <td>{{ policy.description }}</td>
+      <td>{{ policy.publishied }}</td>
+      <td>
+        <button (click)="deletePolicy(policy.id)">Delete</button>
+        <button (click)="selectPolicy(policy)">Update</button>
+      </td>
+    </tr>
+  </table>
+
+  
+
+</div>
